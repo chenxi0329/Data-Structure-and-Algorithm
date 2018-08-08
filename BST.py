@@ -1,44 +1,44 @@
 from TreeNode import TreeNode
 
 def insert(root, val, prev = None, direction = -1):
-	#base case
-	if not root:
-		if direction == 0:
-			prev.left = TreeNode(val)
-		elif direction == 1:
-			prev.right = TreeNode(val)
-	#recursive case
-	else:
-		#direction parameter, 0 stands for left child 1 stands for right child
-		if root.val < val:
-			insert(root.right, val, root, 1)
-		elif root.val > val:
-			insert(root.left, val, root, 0)
+    #base case
+    if not root:
+        if direction == 0:
+            prev.left = TreeNode(val)
+        elif direction == 1:
+            prev.right = TreeNode(val)
+    #recursive case
+    else:
+        #direction parameter, 0 stands for left child 1 stands for right child
+        if root.val < val:
+            insert(root.right, val, root, 1)
+        elif root.val > val:
+            insert(root.left, val, root, 0)
 
 def search(root, val):
     if not root:
-    	return False
+        return False
     elif root.val == val:
-    	return True
+        return True
     else:
-    	if root.val < val:
-    		return search(root.right, val)
-    	else:
-			return search(root.left, val)
-    	
+        if root.val < val:
+            return search(root.right, val)
+        else:
+            return search(root.left, val)
+        
 
 def delete(root, val):
     return None
 
 def printTreeSideWay(root, prefix = ''):
-	#base
-	if not root:
-		return 
-	#recursive case
-	else:
-		printTreeSideWay(root.right, prefix + '    ')
-		print(prefix + str(root.val))
-		printTreeSideWay(root.left, prefix + '    ')
+    #base
+    if not root:
+        return 
+    #recursive case
+    else:
+        printTreeSideWay(root.right, prefix + '    ')
+        print(prefix + str(root.val))
+        printTreeSideWay(root.left, prefix + '    ')
 
 root = TreeNode(88)
 
